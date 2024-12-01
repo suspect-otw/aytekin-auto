@@ -3,7 +3,7 @@ services:
     name: aytekin-auto-backend
     env: node
     buildCommand: cd backend && npm install
-    startCommand: cd backend && node server.js
+    startCommand: cd backend && npx concurrently "node server.js" "node scripts/scraper.js"
     envVars:
       - key: NODE_ENV
         value: production
